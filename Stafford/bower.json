@@ -1,5 +1,6 @@
 {
-    "name": "Stafford",
-    "dependencies": {
-    }
+  "name": "Stafford",
+  "dependencies": {
+    "jquery-mobile-bower": "~1.4.5"
+  }
 }
