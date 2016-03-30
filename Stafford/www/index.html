@@ -1,108 +1,113 @@
 <!DOCTYPE html>
 <html>
-    <head>
+<head>
     <!--
         Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
         For details, see http://go.microsoft.com/fwlink/?LinkID=617521
     -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-        
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
 
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
 
-        <link rel="stylesheet" type="text/css" href="css/themes/staffordTheme.min.css">
-        <link rel="stylesheet" type="text/css" href="css/themes/jquery.mobile.icons.min.css">
-        <link href="lib/jquery-mobile-bower/css/jquery.mobile.structure-1.4.5.min.css" rel="stylesheet" />
+    <link href="css/themes/stafford.min.css" rel="stylesheet" />
+    <link href="css/themes/jquery.mobile.icons.min.css" rel="stylesheet" />
 
-        <link href="lib/jquery-mobile-bower/css/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
+    <link href="lib/jquery-mobile-bower/css/jquery.mobile.structure-1.4.5.min.css" rel="stylesheet" />
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/jquery-mobile-bower/js/jquery.mobile-1.4.5.min.js"></script>
 
+    <script src="scripts/ApiCon.js"></script>
 
-        <script src="lib/jquery/jquery.min.js"></script>
-        <script src="lib/jquery-mobile-bower/js/jquery.mobile-1.4.5.min.js"></script>
-        <title>Stafford</title>
-    </head>
-    <body>
-        <!-- Start of first page: #one -->
-        <div data-role="page" id="one" data-theme="a">
-
-            <div data-role="header" data-theme="a">
-                <h1>Multi-page</h1>
-            </div><!-- /header -->
-
-            <div data-role="content">
-                <h2>One</h2>
-
-                <p>I have an <code>id</code> of "one" on my page container. I'm first in the source order so I'm shown when the page loads.</p>
-
-                <p>This is a multi-page boilerplate template that you can copy to build your first jQuery Mobile page. This template contains multiple "page" containers inside, unlike a <a href="page-template.html"> single page template</a> that has just one page within it.</p>
-                <p>Just view the source and copy the code to get started. All the CSS and JS is linked to the jQuery CDN versions so this is super easy to set up. Remember to include a meta viewport tag in the head to set the zoom level.</p>
-                <p>You link to internal pages by referring to the <code>id</code> of the page you want to show. For example, to <a href="#two">link</a> to the page with an <code>id</code> of "two", my link would have a <code>href="#two"</code> in the code.</p>
-
-                <h3>Show internal pages:</h3>
-                <p><a href="#two" data-role="button">Show page "two"</a></p>
-                <p><a href="#popup" data-role="button" data-rel="dialog" data-transition="pop">Show page "popup" (as a dialog)</a></p>
-            </div><!-- /content -->
-
-            <div data-role="footer" data-theme="d">
-                <h4>Page Footer</h4>
-            </div><!-- /footer -->
-        </div><!-- /page one -->
-        <!-- Start of second page: #two -->
-        <div data-role="page" id="two" data-theme="a">
-
-            <div data-role="header">
-                <h1>Two</h1>
-            </div><!-- /header -->
-
-            <div data-role="content" data-theme="a">
-                <h2>Two</h2>
-                <p>I have an id of "two" on my page container. I'm the second page container in this multi-page template.</p>
-                <p>Notice that the theme is different for this page because we've added a few <code>data-theme</code> swatch assigments here to show off how flexible it is. You can add any content or widget to these pages, but we're keeping these simple.</p>
-                <p><a href="#one" data-direction="reverse" data-role="button" data-theme="b">Back to page "one"</a></p>
-
-            </div><!-- /content -->
-
-            <div data-role="footer">
-                <h4>Page Footer</h4>
-            </div><!-- /footer -->
-        </div><!-- /page two -->
-        <!-- Start of third page: #popup -->
-        <div data-role="page" id="popup">
-
-            <div data-role="header" data-theme="e">
-                <h1>Dialog</h1>
-            </div><!-- /header -->
-
-            <div data-role="content" data-theme="d">
-                <h2>Popup</h2>
-                <p>I have an id of "popup" on my page container and only look like a dialog because the link to me had a <code>data-rel="dialog"</code> attribute which gives me this inset look and a <code>data-transition="pop"</code> attribute to change the transition to pop. Without this, I'd be styled as a normal page.</p>
-                <p><a href="#one" data-rel="back" data-role="button" data-inline="true" data-icon="back">Back to page "one"</a></p>
-            </div><!-- /content -->
-
-            <div data-role="footer">
-                <h4>Page Footer</h4>
-            </div><!-- /footer -->
-        </div><!-- /page popup -->
-        <!--
-        <div data-role="page">
-            <div data-role="footer" data-theme="a">
-                <div data-role="navbar">
-                    <ul>
-                        <li><a href="a.html">One</a></li>
-                        <li><a href="b.html">Two</a></li>
-                    </ul>
-                </div>
+    <title>Stafford</title>
+</head>
+<body>
+    <!-- Start of first page: #one -->
+    <div data-role="page" id="one" data-theme="a">
+        <div data-role="panel" id="mypanel" data-position="right">
+            <div data-role="navbar" data-iconpos="left">
+                <ul>
+                    <li><button data-icon="home">Nyheder</button></li>
+                    <li><button data-icon="home">Racen</button></li>
+                    <li><button data-icon="home">Billeder</button></li>
+                    <li><button data-icon="home">Opdrættere</button></li>
+                    <li><button data-icon="home">Kontakt</button></li>
+                </ul>
             </div>
-            <h1>Hello World!</h1>
-            <div class="app">
-                <p id="deviceready" class="event">Connecting to Device</p>
-            </div>
+        </div><!-- /panel -->
+        <div data-role="header">
+            <h4>SBT Nyheder</h4><a href="#mypanel">Menu</a>
+        </div><!-- /header -->
 
+        <div data-role="content">
+            <h2>One</h2>
+            <p class="greeting-id">The ID is </p>
+            <p class="greeting-content">The content is </p>
+            <a href="#two">link</a>
+
+            <h3>Show internal pages:</h3>
+            <p><a href="#two" data-role="button">Show page "two"</a></p>
+            <p><a href="#popup" data-role="button" data-rel="dialog" data-transition="pop">Show page "popup" (as a dialog)</a></p>
+        </div><!-- /content -->
+
+        <div data-role="footer" data-position="fixed">
+        </div><!-- /footer -->
+    </div><!-- /page one -->
+    <!-- Start of second page: #two -->
+    <div data-role="page" id="two" data-theme="a">
+
+        <div data-role="header">
+            <h1>Two</h1>
+        </div><!-- /header -->
+
+        <div data-role="content" data-theme="a">
+            <h2>Two</h2>
+            <p>I have an id of "two" on my page container. I'm the second page container in this multi-page template.</p>
+            <p>Notice that the theme is different for this page because we've added a few <code>data-theme</code> swatch assigments here to show off how flexible it is. You can add any content or widget to these pages, but we're keeping these simple.</p>
+            <p><a href="#one" data-direction="reverse" data-role="button" data-theme="b">Back to page "one"</a></p>
+
+        </div><!-- /content -->
+
+        <div data-role="footer">
+            <h4>Page Footer</h4>
+        </div><!-- /footer -->
+    </div><!-- /page two -->
+    <!-- Start of third page: #popup -->
+    <div data-role="page" id="popup">
+
+        <div data-role="header" data-theme="a">
+            <h1>Dialog</h1>
+        </div><!-- /header -->
+
+        <div data-role="content" data-theme="a">
+            <h2>Popup</h2>
+            <p>I have an id of "popup" on my page container and only look like a dialog because the link to me had a <code>data-rel="dialog"</code> attribute which gives me this inset look and a <code>data-transition="pop"</code> attribute to change the transition to pop. Without this, I'd be styled as a normal page.</p>
+            <p><a href="#one" data-rel="back" data-role="button" data-inline="true" data-icon="back">Back to page "one"</a></p>
+        </div><!-- /content -->
+
+        <div data-role="footer">
+            <h4>Page Footer</h4>
+        </div><!-- /footer -->
+    </div><!-- /page popup -->
+    <!--
+    <div data-role="page">
+        <div data-role="footer" data-theme="a">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="a.html">One</a></li>
+                    <li><a href="b.html">Two</a></li>
+                </ul>
+            </div>
         </div>
-        -->
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="scripts/platformOverrides.js"></script>
-    </body>
+        <h1>Hello World!</h1>
+        <div class="app">
+            <p id="deviceready" class="event">Connecting to Device</p>
+        </div>
+
+    </div>
+    -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+</body>
 </html>
