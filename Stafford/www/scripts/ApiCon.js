@@ -6,3 +6,9 @@
         $('.greeting-content').append(data.content);
     });
 });
+
+
+
+$(function () {
+    $("#penis").load("Test.html");
+});
