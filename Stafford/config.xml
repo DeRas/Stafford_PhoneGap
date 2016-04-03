@@ -4,7 +4,7 @@
   <description>Staffordshire Bull Terrier Danmark</description>
   <author href="http://cordova.io" email="dev@cordova.apache.org">Demoit IVS - Dennis Rasmussen</author>
   <content src="index.html" />
-  <access origin="*" />
+  <access origin="http://spring.io/*" />
   <vs:features />
   <preference name="SplashScreen" value="screen" />
   <preference name="windows-target-version" value="8.1" />
@@ -107,4 +107,6 @@
     <splash src="res/screens/wp8/SplashScreenImage.png" width="768" height="1280" />
   </platform>
   <preference name="Fullscreen" value="True" />
+  <access origin="http://staffy.dk/*" />
+  <access />
 </widget>

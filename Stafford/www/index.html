@@ -5,9 +5,7 @@
         Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
         For details, see http://go.microsoft.com/fwlink/?LinkID=617521
          -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-
-
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; connect-src 'self' http://staffy.dk; script-src 'self' 'unsafe-inline'">
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
@@ -28,104 +26,166 @@
     <title>Stafford</title>
 </head>
 <body>
-    <!-- Start of first page: #one -->
+    <!-- !!!!!!!!!!!!!!!!!!!!!!! Nyheder !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
     <div data-role="page" id="Home" data-theme="a">
-
+        <!-- Panel -->
         <div data-role="panel" id="mypanel" data-position="right">
             <ul data-role="listview">
                 <li data-icon="home"><a href="#Home">Nyheder</a></li>
                 <li data-icon="home"><a href="#Breed">Racen</a></li>
-                <li data-icon="home"><a href="#">Billeder</a></li>
-                <li data-icon="home"><a href="#">Opdr&aelig;ttere</a></li>
-                <li data-icon="home"><a href="#">Kontakt</a></li>
+                <li data-icon="home"><a href="#Billeder">Billeder</a></li>
+                <li data-icon="home"><a href="#Breeders">Opdr&aelig;ttere</a></li>
+                <li data-icon="home"><a href="#Contact">Kontakt</a></li>
             </ul>
-        </div><!-- /panel -->
+        </div>
 
+        <!-- Header -->
         <div data-role="header">
             <h4>SBT Nyheder</h4><a href="#mypanel">Menu</a>
-        </div><!-- /header -->
+        </div>
 
+        <!-- Content -->
         <div data-role="content">
-            <h2>One</h2>
-            <p class="greeting-id">The ID is </p>
-            <p class="greeting-content">The content is </p>
-            <div id="penis"></div>
-            <a href="#two">link</a>
 
-            <h3>Show internal pages:</h3>
-            <p><a href="#two" data-role="button">Show page "two"</a></p>
-            <p><a href="#popup" data-role="button" data-rel="dialog" data-transition="pop">Show page "popup" (as a dialog)</a></p>
-        </div><!-- /content -->
+        </div>
 
+        <!-- Footer -->
         <div data-role="footer" data-position="fixed">
-        </div><!-- /footer -->
-    </div><!-- /page one -->
-    <!-- Start of second page: #two -->
+        </div>
+    </div>
+
+    <!-- !!!!!!!!!!!!!!!!!!!!!!! Racen !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
     <div data-role="page" id="Breed" data-theme="a">
 
+        <!-- Panel -->
         <div data-role="panel" id="mypanel" data-position="right">
             <ul data-role="listview">
                 <li data-icon="home"><a href="#Home">Nyheder</a></li>
                 <li data-icon="home"><a href="#Breed">Racen</a></li>
-                <li data-icon="home"><a href="#">Billeder</a></li>
-                <li data-icon="home"><a href="#">Opdr&aelig;ttere</a></li>
-                <li data-icon="home"><a href="#">Kontakt</a></li>
+                <li data-icon="home"><a href="#Billeder">Billeder</a></li>
+                <li data-icon="home"><a href="#Breeders">Opdr&aelig;ttere</a></li>
+                <li data-icon="home"><a href="#Contact">Kontakt</a></li>
             </ul>
-        </div><!-- /panel -->
+        </div>
 
+        <!-- Header -->
         <div data-role="header">
             <h4>Racen</h4><a href="#mypanel">Menu</a>
-        </div><!-- /header -->
-
-
-
-
-        <div data-role="content" data-theme="a">
-            <h2>Two</h2>
-            <p>I have an id of "two" on my page container. I'm the second page container in this multi-page template.</p>
-            <p>Notice that the theme is different for this page because we've added a few <code>data-theme</code> swatch assigments here to show off how flexible it is. You can add any content or widget to these pages, but we're keeping these simple.</p>
-            <p><a href="#one" data-direction="reverse" data-role="button" data-theme="b">Back to page "one"</a></p>
-
-        </div><!-- /content -->
-
-        <div data-role="footer">
-            <h4>Page Footer</h4>
-        </div><!-- /footer -->
-    </div><!-- /page two -->
-    <!-- Start of third page: #popup -->
-    <div data-role="page" id="popup">
-
-        <div data-role="header" data-theme="a">
-            <h1>Dialog</h1>
-        </div><!-- /header -->
-
-        <div data-role="content" data-theme="a">
-            <h2>Popup</h2>
-            <p>I have an id of "popup" on my page container and only look like a dialog because the link to me had a <code>data-rel="dialog"</code> attribute which gives me this inset look and a <code>data-transition="pop"</code> attribute to change the transition to pop. Without this, I'd be styled as a normal page.</p>
-            <p><a href="#one" data-rel="back" data-role="button" data-inline="true" data-icon="back">Back to page "one"</a></p>
-        </div><!-- /content -->
-
-        <div data-role="footer">
-            <h4>Page Footer</h4>
-        </div><!-- /footer -->
-    </div><!-- /page popup -->
-    <!--
-    <div data-role="page">
-        <div data-role="footer" data-theme="a">
-            <div data-role="navbar">
-                <ul>
-                    <li><a href="a.html">One</a></li>
-                    <li><a href="b.html">Two</a></li>
-                </ul>
-            </div>
-        </div>
-        <h1>Hello World!</h1>
-        <div class="app">
-            <p id="deviceready" class="event">Connecting to Device</p>
         </div>
 
+        <!-- Content -->
+        <div data-role="content">
+
+
+        </div>
+
+        <!-- Footer -->
+        <div data-role="footer" data-position="fixed">
+        </div>
     </div>
-    -->
+
+
+
+    <!-- !!!!!!!!!!!!!!!!!!!!!!! Billeder !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+    <div data-role="page" id="Billeder" data-theme="a">
+
+        <!-- Panel -->
+        <div data-role="panel" id="mypanel" data-position="right">
+            <ul data-role="listview">
+                <li data-icon="home"><a href="#Home">Nyheder</a></li>
+                <li data-icon="home"><a href="#Breed">Racen</a></li>
+                <li data-icon="home"><a href="#Billeder">Billeder</a></li>
+                <li data-icon="home"><a href="#Breeders">Opdr&aelig;ttere</a></li>
+                <li data-icon="home"><a href="#Contact">Kontakt</a></li>
+            </ul>
+        </div>
+
+        <!-- Header -->
+        <div data-role="header">
+            <h4>Billeder</h4><a href="#mypanel">Menu</a>
+        </div>
+
+        <!-- Content -->
+        <div data-role="content">
+
+
+        </div>
+
+        <!-- Footer -->
+        <div data-role="footer" data-position="fixed">
+        </div>
+    </div>
+
+
+
+
+
+    <!-- !!!!!!!!!!!!!!!!!!!!!!! Opdrættere !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+    <div data-role="page" id="Breeders" data-theme="a">
+
+        <!-- Panel -->
+        <div data-role="panel" id="mypanel" data-position="right">
+            <ul data-role="listview">
+                <li data-icon="home"><a href="#Home">Nyheder</a></li>
+                <li data-icon="home"><a href="#Breed">Racen</a></li>
+                <li data-icon="home"><a href="#Billeder">Billeder</a></li>
+                <li data-icon="home"><a href="#Breeders">Opdr&aelig;ttere</a></li>
+                <li data-icon="home"><a href="#Contact">Kontakt</a></li>
+            </ul>
+        </div>
+
+        <!-- Header -->
+        <div data-role="header">
+            <h4>Opdr&aelig;ttere</h4><a href="#mypanel">Menu</a>
+        </div>
+
+        <!-- Content -->
+        <div data-role="content">
+
+
+        </div>
+
+        <!-- Footer -->
+        <div data-role="footer" data-position="fixed">
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- !!!!!!!!!!!!!!!!!!!!!!! Racen !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+    <div data-role="page" id="Contact" data-theme="a">
+
+        <!-- Panel -->
+        <div data-role="panel" id="mypanel" data-position="right">
+            <ul data-role="listview">
+                <li data-icon="home"><a href="#Home">Nyheder</a></li>
+                <li data-icon="home"><a href="#Breed">Racen</a></li>
+                <li data-icon="home"><a href="#Billeder">Billeder</a></li>
+                <li data-icon="home"><a href="#Breeders">Opdr&aelig;ttere</a></li>
+                <li data-icon="home"><a href="#Contact">Kontakt</a></li>
+            </ul>
+        </div>
+
+        <!-- Header -->
+        <div data-role="header">
+            <h4>Kontakt</h4><a href="#mypanel">Menu</a>
+        </div>
+
+        <!-- Content -->
+        <div data-role="content">
+
+
+        </div>
+
+        <!-- Footer -->
+        <div data-role="footer" data-position="fixed">
+        </div>
+    </div>
+
+
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="scripts/platformOverrides.js"></script>
 </body>
