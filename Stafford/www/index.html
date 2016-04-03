@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html>
 <head>
     <!--
         Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
         For details, see http://go.microsoft.com/fwlink/?LinkID=617521
          -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; connect-src 'self' http://staffy.dk; script-src 'self' 'unsafe-inline'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://www.staffy.dk data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; connect-src 'self' http://staffy.dk; script-src 'self' 'unsafe-inline'">
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
@@ -22,30 +22,44 @@
 
     <script src="scripts/ApiCon.js"></script>
 
-
     <title>Stafford</title>
 </head>
 <body>
+    <div data-role="panel" id="sidemenu" data-theme="a">
+        <ul data-role="listview" id="listmenu">
+            <li data-icon="home"><a href="#Home">Nyheder</a></li>
+            <li data-icon="home"><a href="#Breed">Racen</a></li>
+            <li data-icon="home"><a href="#Billeder">Billeder</a></li>
+            <li data-icon="home"><a href="#Breeders">Opdr&aelig;ttere</a></li>
+            <li data-icon="home"><a href="#Contact">Kontakt</a></li>
+        </ul>
+    </div>
+
+
+
     <!-- !!!!!!!!!!!!!!!!!!!!!!! Nyheder !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
     <div data-role="page" id="Home" data-theme="a">
         <!-- Panel -->
-        <div data-role="panel" id="mypanel" data-position="right">
-            <ul data-role="listview">
-                <li data-icon="home"><a href="#Home">Nyheder</a></li>
-                <li data-icon="home"><a href="#Breed">Racen</a></li>
-                <li data-icon="home"><a href="#Billeder">Billeder</a></li>
-                <li data-icon="home"><a href="#Breeders">Opdr&aelig;ttere</a></li>
-                <li data-icon="home"><a href="#Contact">Kontakt</a></li>
-            </ul>
-        </div>
-
-        <!-- Header -->
-        <div data-role="header">
-            <h4>SBT Nyheder</h4><a href="#mypanel">Menu</a>
+        <script>
+            $(function () {
+                $("#sidemenu").panel();
+                $("#listmenu").listview();
+            });
+        </script>
+        <div data-role="header" id="sbt-header">
+            <h4>SBT Danmark</h4><a href="#sidemenu">Menu</a>
         </div>
 
         <!-- Content -->
         <div data-role="content">
+            <h2 style="padding-bottom: 10px;">Nyheder</h2>
+
+            <ul data-role="listview" id="newslist">
+            </ul>
+
+            <div data-role="collapsible-set" id="newscollaps">
+            </div>
+
 
         </div>
 
@@ -58,19 +72,16 @@
     <div data-role="page" id="Breed" data-theme="a">
 
         <!-- Panel -->
-        <div data-role="panel" id="mypanel" data-position="right">
-            <ul data-role="listview">
-                <li data-icon="home"><a href="#Home">Nyheder</a></li>
-                <li data-icon="home"><a href="#Breed">Racen</a></li>
-                <li data-icon="home"><a href="#Billeder">Billeder</a></li>
-                <li data-icon="home"><a href="#Breeders">Opdr&aelig;ttere</a></li>
-                <li data-icon="home"><a href="#Contact">Kontakt</a></li>
-            </ul>
-        </div>
+        <script>
+            $(function () {
+                $("#sidemenu").panel();
+                $("#listmenu").listview();
+            });
+        </script>
 
         <!-- Header -->
         <div data-role="header">
-            <h4>Racen</h4><a href="#mypanel">Menu</a>
+            <h4>Racen</h4><a href="#sidemenu">Menu</a>
         </div>
 
         <!-- Content -->
@@ -90,24 +101,23 @@
     <div data-role="page" id="Billeder" data-theme="a">
 
         <!-- Panel -->
-        <div data-role="panel" id="mypanel" data-position="right">
-            <ul data-role="listview">
-                <li data-icon="home"><a href="#Home">Nyheder</a></li>
-                <li data-icon="home"><a href="#Breed">Racen</a></li>
-                <li data-icon="home"><a href="#Billeder">Billeder</a></li>
-                <li data-icon="home"><a href="#Breeders">Opdr&aelig;ttere</a></li>
-                <li data-icon="home"><a href="#Contact">Kontakt</a></li>
-            </ul>
-        </div>
+        <script>
+            $(function () {
+                $("#sidemenu").panel();
+                $("#listmenu").listview();
+            });
+        </script>
 
         <!-- Header -->
         <div data-role="header">
-            <h4>Billeder</h4><a href="#mypanel">Menu</a>
+            <h4>Billeder</h4><a href="#sidemenu">Menu</a>
         </div>
 
         <!-- Content -->
         <div data-role="content">
+            <div id="imagesDiv">
 
+            </div>
 
         </div>
 
@@ -120,23 +130,20 @@
 
 
 
-    <!-- !!!!!!!!!!!!!!!!!!!!!!! Opdrættere !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+    <!-- !!!!!!!!!!!!!!!!!!!!!!! Opdrï¿½ttere !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
     <div data-role="page" id="Breeders" data-theme="a">
 
         <!-- Panel -->
-        <div data-role="panel" id="mypanel" data-position="right">
-            <ul data-role="listview">
-                <li data-icon="home"><a href="#Home">Nyheder</a></li>
-                <li data-icon="home"><a href="#Breed">Racen</a></li>
-                <li data-icon="home"><a href="#Billeder">Billeder</a></li>
-                <li data-icon="home"><a href="#Breeders">Opdr&aelig;ttere</a></li>
-                <li data-icon="home"><a href="#Contact">Kontakt</a></li>
-            </ul>
-        </div>
+        <script>
+            $(function () {
+                $("#sidemenu").panel();
+                $("#listmenu").listview();
+            });
+        </script>
 
         <!-- Header -->
         <div data-role="header">
-            <h4>Opdr&aelig;ttere</h4><a href="#mypanel">Menu</a>
+            <h4>Opdr&aelig;ttere</h4><a href="#sidemenu">Menu</a>
         </div>
 
         <!-- Content -->
@@ -159,19 +166,16 @@
     <div data-role="page" id="Contact" data-theme="a">
 
         <!-- Panel -->
-        <div data-role="panel" id="mypanel" data-position="right">
-            <ul data-role="listview">
-                <li data-icon="home"><a href="#Home">Nyheder</a></li>
-                <li data-icon="home"><a href="#Breed">Racen</a></li>
-                <li data-icon="home"><a href="#Billeder">Billeder</a></li>
-                <li data-icon="home"><a href="#Breeders">Opdr&aelig;ttere</a></li>
-                <li data-icon="home"><a href="#Contact">Kontakt</a></li>
-            </ul>
-        </div>
+        <script>
+            $(function () {
+                $("#sidemenu").panel();
+                $("#listmenu").listview();
+            });
+        </script>
 
         <!-- Header -->
         <div data-role="header">
-            <h4>Kontakt</h4><a href="#mypanel">Menu</a>
+            <h4>Kontakt</h4><a href="#sidemenu">Menu</a>
         </div>
 
         <!-- Content -->

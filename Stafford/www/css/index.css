@@ -53,3 +53,7 @@ body {
 
 @media screen and (orientation: landscape) {
 }
+
+#imagesDiv img {
+    width:100%;
+}
