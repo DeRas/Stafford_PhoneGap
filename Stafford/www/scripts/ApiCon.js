@@ -41,11 +41,11 @@ $(document).on("pageshow", "#Home", function () { // When entering pagetwo
                 nextId++;
                 var content = "<div data-role='collapsible'><h3>" + item.Title + "</h3><p>" + item.Text + "</p></div>";
                 $("#newscollaps").append(content).collapsibleset('refresh');
-
+                newsRetrieved = true;
+                $.mobile.pageContainer.pagecontainer("change", "#Billeder");
             });
         });
 
-        newsRetrieved = true;
     }
 
 });
@@ -84,6 +84,7 @@ $(document).on("pageshow", "#Billeder", function () { // When entering Billeder
 
 });
 
+
 function ShowImages(pageNumber) {
     var firstImage = pageNumber * 5 - 5;
     var lastImage = firstImage + 4;
@@ -92,7 +93,11 @@ function ShowImages(pageNumber) {
         lastImage = imagesArray.length;
     }
     
-    for (var i = firstImage; i <= lastImage; i++) {
-        $('#imagesDiv').append(' <img src="' + imagesArray[i].UrlToImage + '" alt="A staff!"> ');
+    var imageslistview = $('#imagesList');
+    for (var i = firstImage; i < imagesArray.length; i++) {
+        imageslistview.append('<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-btn ui-bar-e ui-corner-top">' + imagesArray[i].Title + '</li>');
+        imageslistview.append('<li class="custom_listview_img"><img class="imagez" src="'+ imagesArray[i].UrlToImage + '"></img></li>');
+        //imageslistview.append('<li><img class="resize_fit_center" src="' + imagesArray[i].UrlToImage + '"></img></li>');
+        //$('#imagesDiv').append(' <img src="' + imagesArray[i].UrlToImage + '" alt="A staff!"> ');
     }
 }
