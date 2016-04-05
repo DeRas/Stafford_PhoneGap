@@ -54,6 +54,10 @@
         <!-- Content -->
         <div data-role="content">
             <h2 style="padding-bottom: 10px;">Nyheder</h2>
+            <div id="newsError" hidden="hidden">
+                <p>Fejl! Kunne ikke hente nyheder..</p>
+                <button class="ui-btn" id="newsTryAgain" onclick="newsTryAgain();">Prøv igen?</button>
+            </div>
 
 
 
@@ -152,6 +156,13 @@
 
         <!-- Content -->
         <div data-role="content">
+            <div id="BreedersDiv">
+
+                <div data-role="collapsible-set" id="breedersCollaps">
+                </div>
+
+            </div>
+
 
 
         </div>
