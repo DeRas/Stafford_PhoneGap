@@ -16,20 +16,18 @@
         ShowImages(currentImagePage);
     });
 
-    //$.ajax({
-    //    url: "http://staffy.dk/api/images"
-    //}).then(function (data){
-    //    $('.greeting-id').append(data[0].UrlToImage);
-    //});
+    $(".photopopup").on({
+        popupbeforeposition: function () {
+            var maxHeight = $(window).height() - 60 + "px";
+            $(".photopopup img").css("max-height", maxHeight);
+        }
+    });
 
-    //$.ajax({
-    //    url: "http://rest-service.guides.spring.io/greeting"
-    //}).then(function (data) {
-    //    $('.greeting-id').append(data.id);
-    //    $('.greeting-content').append(data.content);
-    //});
+
 
 });
+
+
 
 function newsTryAgain() {
     // Todo: clear news list
@@ -41,6 +39,7 @@ var news = {
     posts_url: "http://staffy.dk/api/news",
 
     onDeviceReady: function () {
+        startLoadIcon();
         news.readPosts();
     },
 
@@ -67,12 +66,13 @@ var news = {
             $("#newscollaps").append(content).collapsibleset('refresh');
         });
         $('newsError').hide();
+        stopLoadIcon();
         console.log('News onSuccess');
     },
 
     onError: function (data, textStatus, errorThrown) {
         $('newsError').show();
-
+        stopLoadIcon();
         console.log('Data: ' + data);
         console.log('Status: ' + textStatus);
         console.log('Error: ' + errorThrown);
@@ -86,6 +86,7 @@ var maxPage = 1;
 var currentImagePage = 1;
 
 var images = {
+    
     posts_url: "http://staffy.dk/api/images",
 
     onDeviceReady: function () {
@@ -123,7 +124,9 @@ var imagesShown = false;
 $(document).on("pageshow", "#Billeder", function () { // When entering Billeder
 
     if (!imagesShown) {
+        startLoadIcon();
         ShowImages(currentImagePage);
+        stopLoadIcon();
     }
 
 });
@@ -140,13 +143,18 @@ function ShowImages(pageNumber) {
     var imageslistview = $('#imagesList');
 
     imageslistview.empty();
-
+ 
     for (var i = firstImage; i < lastImage; i++) {
         imageslistview.append('<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-btn ui-bar-e ui-corner-top">' + imagesArray[i].Title + '</li>');
         imageslistview.append('<li class="custom_listview_img"><img class="imagez" src="' + imagesArray[i].UrlToImage + '"></img></li>');
     }
 
-
+    $(".custom_listview_img").on("click", function () {
+        // Do stuff, get id of image perhaps?
+        link = $(this).children('img').attr('src');
+        $('#popupImage').attr('src', link);
+        $('#popupImageLink').click();
+    });
     
     if (currentImagePage <= 1) {
         $('#prevButton').attr('disabled', true);
@@ -196,12 +204,15 @@ var breeders = {
     }
 };
 
-var breedersRetrieved = false;
+var breedersShown = false;
 var breedersArray;
 $(document).on("pageshow", "#Breeders", function () { // When entering Billeder
 
-    if (!breedersRetrieved) {
+    if (!breedersShown) {
+        startLoadIcon();
         ShowBreeders(breedersArray);
+        breedersShown = true;
+        stopLoadIcon();
     }
 
 });
@@ -223,6 +234,13 @@ function ShowBreeders(data) {
         output.push(data[i].Region);
     }
 
+    output.sort(function (a, b) {
+        if (a < b)
+            return -1;
+        if (a > b)
+            return 1;
+        return 0;
+    });
 
     for (o = 0; o < output.length; o++) {
         breederDiv = $('#breedersCollaps');
@@ -238,7 +256,7 @@ function ShowBreeders(data) {
                 currentBreeder += '<p>' + data[p].Name + '</p>';
                 currentBreeder += '<p>' + data[p].Mail + '</p>';
                 currentBreeder += '<p>' + data[p].PhoneNumber + '</p>';
-                currentBreeder += '<p>' + data[p].Homepage + '</p>';
+                currentBreeder += '<p><a href="' + data[p].Homepage + '">' + data[p].Homepage + '</a></p>';
                 currentBreeder += '</div>';
                 $("#breedersCollaps").append(currentBreeder).collapsibleset('refresh');
             }

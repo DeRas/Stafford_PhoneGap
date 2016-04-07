@@ -15,7 +15,7 @@
 
     <link href="css/themes/stafford.min.css" rel="stylesheet" />
     <link href="css/themes/jquery.mobile.icons.min.css" rel="stylesheet" />
- 
+
 
     <link href="lib/jquery-mobile-bower/css/jquery.mobile.structure-1.4.5.min.css" rel="stylesheet" />
     <script src="lib/jquery/jquery.min.js"></script>
@@ -90,8 +90,54 @@
 
         <!-- Content -->
         <div data-role="content">
+            <div id="oprindelse">
+                <h3>Oprindelse</h3>
+                <p>
+                    Den første Staffordshire bull terrier blev indregistreret i England i 1935, og er siden udelukkende opdrættet som familie- og udstillingshund.
+                    Hundekamp blev forbudt ifølge engelsk lov 100 år før, i 1835.
+                </p>
+                <p>
+                    Racen blev i 2006 kåret som årets familiehund i England, hvor den også populært kaldes "the childrens' nursemaid" eller "the nannydog".
+                    Staffordshire bull terrierens tålmodighed og forsigtige omgang med børn er legendarisk.
+                </p>
+                <p>
 
+                    De hunde som Staffordshire bull terrieren nedstammer fra, er ikke fuldt dokumenteret, men det vides, at racen blev skabt ud fra datidens bulldog og terrier varianter. Formodentlig med størst vægt indholdet af bulldog.
+                    Staffordshire bull terrieren er den terrier race i oprindelseslandet, der er flest af - og samme sted den 5. største race med ca. 12.000 årlige registreringer.
+                </p>
+                <p>
+                    I Danmark er Staffordshire bull terrieren en race med en lille population. I 2008, 2009 og 2010 blev der i Dansk Kennel Klub registreret henholdsvis 180, 136 og 101 Staffordshire bull terriere.
+                </p>
+            </div>
 
+            <div id="ansvar">
+                <h3>Ansvar</h3>
+                <p>
+                    Der følger et stort ansvar med, når du ejer en Staffordshire bull terrier. Ikke kun et ansvar for din egen hund, men også overfor alle andre ejere af denne race.
+                </p>
+                <p>
+                    Handler ejer ubetænksomt eller uforsvarligt i en situation hvor han/hun er sammen med sin Staffordshire bull terrier, kan det få store konsekvenser for alle, der ejer en Staffordshire bull terrier.
+                </p>
+                <p>
+                    Vi skal alle være vores ansvar voksent.
+                </p>
+                <p>
+                    Det indebærer, at alle ejere af Staffordshire bull terriere skal være gode ambassadører for racen, så folk der møder dem får et godt indtryk af ejere og hunde.
+                    Restriktioner, mundkurv og forbud kan ramme Staffordshire bull terrieren, hvis der sker bid på andre hunde, dyr eller mennesker.
+                    Det er igennem gode ambassadører og og positiv "branding", at vi får resten af befolkningen til at se Staffordshire bull terrieren for hvad den er: En kompakt, logrende, lille hund, der har et stort hjerte, siger sjove lyde og elsker børn og voksne.
+                </p>
+                <p>
+                    Ejere af Staffordshire bull terrieren er ansvarlige for at være gode ambassadører, overholde dansk lovgivning, f.eks. sikre at din hund er registreret i Dansk hunderegister og bærer hundetegn.
+                </p>
+                <p>
+                    Erfaring viser, at den jævnlige debat om ”farlige hunde” og lovgivning, kan medføre restriktioner, til og med forbud. Også for vores race, selvom det rent faktisk ikke er Staffordshire bull terrieren, der har gjort noget forkert. Derfor er det af yderste vigtighed, at ejere
+                    af Staffordshire bull terrieren altid gør et godt indtryk og støtter op om racens gode image.
+                </p>
+            </div>
+
+            <div id="anskaffelse">
+                <h3>Anskaffelse af Staffordshire Bull Terrier</h3>
+            </div>
         </div>
 
         <!-- Footer -->
@@ -123,14 +169,19 @@
                 <ul data-role="listview" id="imagesList" data-inset="true"></ul>
             </div>
 
-            <div id="imgNav" data-role="controlgroup" data-type="horizontal">
-                <button id="prevButton" disabled="" href="#" class="ui-btn ui-btn-inline ui-icon-delete ui-btn-icon-left">Forrige side</button>
-                <button id="nextButton" href="#" class="ui-btn ui-btn-inline ui-icon-delete ui-btn-icon-right">Næste side</button>
+            <a href="#popupPhotoPortrait" data-rel="popup" data-position-to="window" data-transition="fade" id="popupImageLink"></a>
+            <div data-role="popup" id="popupPhotoPortrait" class="photopopup" data-overlay-theme="a" data-corners="false" data-tolerance="30,15">
+                <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img id="popupImage" src="../res/icons/android/icon-96-xhdpi.png" alt="Photo portrait">
             </div>
+
         </div>
 
         <!-- Footer -->
         <div data-role="footer" data-position="fixed">
+            <div id="imgNav" data-role="controlgroup" data-type="horizontal" style="text-align:center;">
+                <button id="prevButton" disabled="" href="#" class="ui-btn ui-btn-inline ui-btn-icon-left">Forrige side</button>
+                <button id="nextButton" href="#" class="ui-btn ui-btn-inline ui-btn-icon-right">Næste side</button>
+            </div>
         </div>
     </div>
 
