@@ -16,18 +16,11 @@
         ShowImages(currentImagePage);
     });
 
-    $(".photopopup").on({
-        popupbeforeposition: function () {
-            var maxHeight = $(window).height() - 60 + "px";
-            $(".photopopup img").css("max-height", maxHeight);
-        }
-    });
-
-
 
 });
 
-
+var baseApi = "http://sbtdk.azurewebsites.net/api/";
+var baseImageUrl = "https://sbtdk.blob.core.windows.net/staffimages/";
 
 function newsTryAgain() {
     // Todo: clear news list
@@ -36,7 +29,7 @@ function newsTryAgain() {
 };
 
 var news = {
-    posts_url: "http://staffy.dk/api/news",
+    posts_url: baseApi + "getnews",
 
     onDeviceReady: function () {
         startLoadIcon();
@@ -56,13 +49,21 @@ var news = {
     },
 
     onSuccess: function (data) {
+        data.sort(function (a, b) {
+            if (a.Id < b.Id)
+                return 1;
+            if (a.Id > b.Id)
+                return -1;
+            return 0;
+        });
+
         var list = $(".newslist");
         var nextId = 1;
 
         $.each(data, function (i, item) {
             var tit = item.Title;
             nextId++;
-            var content = "<div data-role='collapsible'><h3>" + item.Title + "</h3><p>" + item.Text + "</p></div>";
+            var content = "<div data-role='collapsible'><h3>" + item.Title + "</h3><p><img class='imagez' src='" + baseImageUrl + item.ImageUrl + "'></img></p><p>" + item.Text + "</p><p><a href='" + item.Link + "'>" + item.Link + "</a></p></div>";
             $("#newscollaps").append(content).collapsibleset('refresh');
         });
         $('newsError').hide();
@@ -87,7 +88,7 @@ var currentImagePage = 1;
 
 var images = {
     
-    posts_url: "http://staffy.dk/api/images",
+    posts_url: baseApi + "getimages",
 
     onDeviceReady: function () {
         images.readPosts();
@@ -146,7 +147,7 @@ function ShowImages(pageNumber) {
  
     for (var i = firstImage; i < lastImage; i++) {
         imageslistview.append('<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-btn ui-bar-e ui-corner-top">' + imagesArray[i].Title + '</li>');
-        imageslistview.append('<li class="custom_listview_img"><img class="imagez" src="' + imagesArray[i].UrlToImage + '"></img></li>');
+        imageslistview.append('<li class="custom_listview_img"><img class="imagez" src="' + baseImageUrl + imagesArray[i].UrlToImage + '"></img></li>');
     }
 
     $(".custom_listview_img").on("click", function () {
@@ -173,7 +174,7 @@ function ShowImages(pageNumber) {
 
 
 var breeders = {
-    posts_url: "http://staffy.dk/api/breeders",
+    posts_url: baseApi + "getbreeders",
 
     onDeviceReady: function () {
         breeders.readPosts();
@@ -253,10 +254,19 @@ function ShowBreeders(data) {
             if (data[p].Region == output[o]) {
                 currentBreeder = '<div data-role="collapsible">';
                 currentBreeder += '<h3>' + data[p].KennelName + '</h3>';
-                currentBreeder += '<p>' + data[p].Name + '</p>';
-                currentBreeder += '<p>' + data[p].Mail + '</p>';
-                currentBreeder += '<p>' + data[p].PhoneNumber + '</p>';
-                currentBreeder += '<p><a href="' + data[p].Homepage + '">' + data[p].Homepage + '</a></p>';
+
+                if(data[p].Name != null)
+                    currentBreeder += '<p>' + data[p].Name + '</p>';
+
+                if (data[p].Mail != null)
+                    currentBreeder += '<p>' + data[p].Mail + '</p>';
+
+                if (data[p].PhoneNumber != null)
+                    currentBreeder += '<p>' + data[p].PhoneNumber + '</p>';
+
+                if (data[p].Homepage != null)
+                    currentBreeder += '<p><a href="' + data[p].Homepage + '">' + data[p].Homepage + '</a></p>';
+
                 currentBreeder += '</div>';
                 $("#breedersCollaps").append(currentBreeder).collapsibleset('refresh');
             }

@@ -7,8 +7,6 @@
   <access origin="http://spring.io/*" />
   <vs:features />
   <preference name="SplashScreen" value="screen" />
-  <preference name="SplashScreenDelay" value="3000" />
-  <preference name="SplashShowOnlyFirstTime" value="false" />
   <preference name="windows-target-version" value="8.1" />
   <!-- Support for Cordova 5.0.0 plugin system -->
   <plugin name="cordova-plugin-whitelist" version="1" />
@@ -59,25 +57,6 @@
     <icon src="res/icons/ios/icon-50.png" width="50" height="50" />
     <icon src="res/icons/ios/icon-50-2x.png" width="100" height="100" />
   </platform>
-  <platform name="windows">
-    <icon src="res/icons/windows/Square150x150Logo.scale-100.png" width="150" height="150" />
-    <icon src="res/icons/windows/Square150x150Logo.scale-240.png" width="360" height="360" />
-    <icon src="res/icons/windows/Square30x30Logo.scale-100.png" width="30" height="30" />
-    <icon src="res/icons/windows/Square310x310Logo.scale-100.png" width="310" height="310" />
-    <icon src="res/icons/windows/Square44x44Logo.scale-100.png" width="44" height="44" />
-    <icon src="res/icons/windows/Square44x44Logo.scale-240.png" width="106" height="106" />
-    <icon src="res/icons/windows/Square70x70Logo.scale-100.png" width="70" height="70" />
-    <icon src="res/icons/windows/Square71x71Logo.scale-100.png" width="71" height="71" />
-    <icon src="res/icons/windows/Square71x71Logo.scale-240.png" width="170" height="170" />
-    <icon src="res/icons/windows/StoreLogo.scale-100.png" width="50" height="50" />
-    <icon src="res/icons/windows/StoreLogo.scale-240.png" width="120" height="120" />
-    <icon src="res/icons/windows/Wide310x150Logo.scale-100.png" width="310" height="150" />
-    <icon src="res/icons/windows/Wide310x150Logo.scale-240.png" width="744" height="360" />
-  </platform>
-  <platform name="wp8">
-    <icon src="res/icons/wp8/ApplicationIcon.png" width="99" height="99" />
-    <icon src="res/icons/wp8/Background.png" width="159" height="159" />
-  </platform>
   <platform name="android">
     <splash src="res/screens/android/screen-hdpi-landscape.png" density="land-hdpi" />
     <splash src="res/screens/android/screen-ldpi-landscape.png" density="land-ldpi" />
@@ -100,17 +79,15 @@
     <splash src="res/screens/ios/screen-iphone-portrait-736h.png" width="1242" height="2208" />
     <splash src="res/screens/ios/screen-iphone-landscape-736h.png" width="2208" height="1242" />
   </platform>
-  <platform name="windows">
-    <splash src="res/screens/windows/SplashScreen.scale-100.png" width="620" height="300" />
-    <splash src="res/screens/windows/SplashScreen.scale-240.png" width="1152" height="1920" />
-    <splash src="res/screens/windows/SplashScreenPhone.scale-240.png" width="1152" height="1920" />
-  </platform>
-  <platform name="wp8">
-    <splash src="res/screens/wp8/SplashScreenImage.png" width="768" height="1280" />
-  </platform>
   <preference name="Fullscreen" value="True" />
   <access origin="http://www.staffy.dk/*" />
   <access origin="http://staffy.dk/*" />
+  <access origin="http://sbtdk.azurewebsites.net/*" />
+  <preference name="SplashScreenDelay" value="10000" />
+  <preference name="AutoHideSplashScreen" value="true" />
+  <preference name="SplashMaintainAspectRatio" value="false" />
+  <preference name="SplashShowOnlyFirstTime" value="false" />
+  <access origin="https://sbtdk.blob.core.windows.net/*" />
+  <access origin="https://sbtdk.blob.core.windows.net/staffimages/" />
   <access />
-  <plugin name="cordova-plugin-splashscreen" version="3.1.0" />
 </widget>

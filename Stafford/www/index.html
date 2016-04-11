@@ -5,7 +5,7 @@
         Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
         For details, see http://go.microsoft.com/fwlink/?LinkID=617521
          -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://www.staffy.dk data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; connect-src 'self' http://staffy.dk; script-src 'self' 'unsafe-inline'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://www.staffy.dk http://sbtdk.azurewebsites.net https://sbtdk.blob.core.windows.net/staffimages/ data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; connect-src 'self' http://staffy.dk http://sbtdk.azurewebsites.net https://sbtdk.blob.core.windows.net/staffimages/; script-src 'self' 'unsafe-inline'">
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
@@ -13,26 +13,32 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
 
+
+    <!-- CSS -->
     <link href="css/themes/stafford.min.css" rel="stylesheet" />
     <link href="css/themes/jquery.mobile.icons.min.css" rel="stylesheet" />
-
-
-    <link href="lib/jquery-mobile-bower/css/jquery.mobile.structure-1.4.5.min.css" rel="stylesheet" />
-    <script src="lib/jquery/jquery.min.js"></script>
-    <script src="lib/jquery-mobile-bower/js/jquery.mobile-1.4.5.min.js"></script>
-
-    <script src="scripts/ApiCon.js"></script>
     <link href="css/index.css" rel="stylesheet" />
+    <link href="css/jquery.mobile.structure-1.4.5.min.css" rel="stylesheet" />
+    <!-- JS -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+
+    <script src="lib/jquery-2.2.2.min.js"></script>
+    <script src="lib/jquery.mobile-1.4.5.min.js"></script>
+
+    <script src="scripts/index.js"></script>
+    <script src="scripts/ApiCon.js"></script>
+
     <title>Stafford</title>
 </head>
 <body>
     <div data-role="panel" id="sidemenu" data-theme="a">
         <ul data-role="listview" id="listmenu">
             <li data-icon="home"><a href="#Home">Nyheder</a></li>
-            <li data-icon="home"><a href="#Breed">Racen</a></li>
-            <li data-icon="home"><a href="#Billeder">Billeder</a></li>
-            <li data-icon="home"><a href="#Breeders">Opdr&aelig;ttere</a></li>
-            <li data-icon="home"><a href="#Contact">Kontakt</a></li>
+            <li data-icon="info"><a href="#Breed">Racen</a></li>
+            <li data-icon="camera"><a href="#Billeder">Billeder</a></li>
+            <li data-icon="user"><a href="#Breeders">Opdrættere</a></li>
+            <li data-icon="mail"><a href="#Contact">Kontakt</a></li>
         </ul>
     </div>
 
@@ -48,7 +54,8 @@
             });
         </script>
         <div data-role="header" id="sbt-header">
-            <h4>SBT Danmark</h4><a href="#sidemenu">Menu</a>
+            <h4>SBT Danmark</h4>
+            <a role="button" class="menuButton" href="#sidemenu" data-role="button" class="ui-alt-icon ui-btn-left ui-btn-corner-all ui-btn ui-icon-grid ui-shadow" title="Navigation" data-form="ui-icon"> Menu </a>
         </div>
 
         <!-- Content -->
@@ -85,7 +92,8 @@
 
         <!-- Header -->
         <div data-role="header">
-            <h4>Racen</h4><a href="#sidemenu">Menu</a>
+            <h4>Racen</h4><a role="button" class="menuButton" href="#sidemenu" data-role="button" class="ui-alt-icon ui-btn-left ui-btn-corner-all ui-btn ui-icon-grid ui-shadow" title="Navigation" data-form="ui-icon"> Menu </a>
+
         </div>
 
         <!-- Content -->
@@ -160,18 +168,14 @@
 
         <!-- Header -->
         <div data-role="header">
-            <h4>Billeder</h4><a href="#sidemenu">Menu</a>
+            <h4>Billeder</h4><a role="button" class="menuButton" href="#sidemenu" data-role="button" class="ui-alt-icon ui-btn-left ui-btn-corner-all ui-btn ui-icon-grid ui-shadow" title="Navigation" data-form="ui-icon"> Menu </a>
+
         </div>
 
         <!-- Content -->
         <div data-role="content">
             <div id="imagesDiv" class="imageContainer">
                 <ul data-role="listview" id="imagesList" data-inset="true"></ul>
-            </div>
-
-            <a href="#popupPhotoPortrait" data-rel="popup" data-position-to="window" data-transition="fade" id="popupImageLink"></a>
-            <div data-role="popup" id="popupPhotoPortrait" class="photopopup" data-overlay-theme="a" data-corners="false" data-tolerance="30,15">
-                <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img id="popupImage" src="../res/icons/android/icon-96-xhdpi.png" alt="Photo portrait">
             </div>
 
         </div>
@@ -202,7 +206,8 @@
 
         <!-- Header -->
         <div data-role="header">
-            <h4>Opdr&aelig;ttere</h4><a href="#sidemenu">Menu</a>
+            <h4>Opdrættere</h4><a role="button" class="menuButton" href="#sidemenu" data-role="button" class="ui-alt-icon ui-btn-left ui-btn-corner-all ui-btn ui-icon-grid ui-shadow" title="Navigation" data-form="ui-icon"> Menu </a>
+
         </div>
 
         <!-- Content -->
@@ -241,7 +246,8 @@
 
         <!-- Header -->
         <div data-role="header">
-            <h4>Kontakt</h4><a href="#sidemenu">Menu</a>
+            <h4>Kontakt</h4><a role="button" class="menuButton" href="#sidemenu" data-role="button" class="ui-alt-icon ui-btn-left ui-btn-corner-all ui-btn ui-icon-grid ui-shadow" title="Navigation" data-form="ui-icon"> Menu </a>
+
         </div>
 
         <!-- Content -->
@@ -276,7 +282,8 @@
     </div>
 
 
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+
+
+
 </body>
 </html>
